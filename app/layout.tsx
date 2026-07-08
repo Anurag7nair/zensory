@@ -10,10 +10,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Zensory",
-  description:
-    "Sensory, Physical & Technology-Led Therapy | NIBM, Pune",
+  description: "Sensory, Physical & Technology-Led Therapy | NIBM, Pune",
+
   icons: {
-    icon: "/favicon.ico",
+    icon: "/butterfly.png",
+    shortcut: "/butterfly.png",
+    apple: "/butterfly.png",
   },
 };
 
