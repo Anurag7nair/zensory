@@ -7,21 +7,61 @@ import {
   Globe,
   AtSign,
   MapPin,
+  Heart,
+  ArrowUpRight,
 } from "lucide-react";
+
+const exploreLinks = [
+  "Journey",
+  "Ecosystem",
+  "Academy",
+  "Zensory Nest",
+  "Founder",
+];
+
+const contactInfo = [
+  {
+    icon: Phone,
+    text: "+91 84840 94864",
+    bg: "bg-[#EAFBFD]",
+  },
+  {
+    icon: Globe,
+    text: "www.zensory.co.in",
+    bg: "bg-[#FFF8EB]",
+  },
+  {
+    icon: AtSign,
+    text: "@zensoryecosystem",
+    bg: "bg-[#FFF1F7]",
+  },
+  {
+    icon: MapPin,
+    text: "NIBM Road, Pune",
+    bg: "bg-[#EEF9F1]",
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#061B2B] text-white">
-      <div className="container py-14 md:py-20">
+    <footer className="relative overflow-hidden bg-[#061B35] text-white">
 
-        {/* Top Section */}
+      {/* Background Decoration */}
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="absolute -left-28 top-10 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="absolute right-0 top-24 h-80 w-80 rounded-full bg-yellow-400/10 blur-3xl" />
+      <div className="absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-green-400/10 blur-3xl" />
 
-          {/* Logo */}
+      <div className="container relative z-10 py-16 md:py-20 lg:py-24">
+
+        {/* Top */}
+
+        <div className="grid gap-14 lg:grid-cols-3">
+
+          {/* Brand */}
 
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -29,92 +69,116 @@ export default function Footer() {
             <Image
               src="/logo.png"
               alt="Zensory"
-              width={180}
+              width={190}
               height={60}
-              className="h-12 w-auto md:h-14"
+              className="h-14 w-auto"
             />
 
-            <p className="mt-6 max-w-sm text-base leading-8 text-white/70 md:text-lg">
-              Nurturing neurodiverse potential through therapy,
-              technology, and parent partnership in NIBM,
-              Pune.
+            <p className="mt-7 max-w-md text-lg leading-8 text-white/70">
+              Helping every child discover their strengths through therapy,
+              technology and compassionate family partnerships. Together, we
+              nurture brighter futures one milestone at a time.
             </p>
+
+            <div className="mt-8 flex items-center gap-3">
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
+                <Heart
+                  size={22}
+                  className="text-[#F7C63D]"
+                  fill="#F7C63D"
+                />
+              </div>
+
+              <div>
+
+                <p className="text-sm uppercase tracking-[3px] text-cyan-300">
+                  Every Child Matters
+                </p>
+
+                <p className="text-white/70">
+                  Growing with care, confidence & joy.
+                </p>
+
+              </div>
+
+            </div>
+
           </motion.div>
 
           {/* Explore */}
 
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.15 }}
           >
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[4px] text-cyan-300">
+            <h3 className="mb-8 text-sm font-bold uppercase tracking-[4px] text-cyan-300">
               Explore
-            </h3>
-
-            <ul className="space-y-4">
-
-              {[
-                "Journey",
-                "Ecosystem",
-                "Academy",
-                "Zensory Nest",
-                "Founder",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="cursor-pointer text-base text-white/75 transition-all duration-300 hover:translate-x-1 hover:text-white md:text-lg"
-                >
-                  {item}
-                </li>
-              ))}
-
-            </ul>
-
-          </motion.div>
-
-          {/* Connect */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[4px] text-cyan-300">
-              Connect
             </h3>
 
             <div className="space-y-5">
 
-              <div className="flex items-center gap-3 text-white/75">
-                <Phone size={18} />
-                <span className="text-base md:text-lg">
-                  +91 84840 94864
-                </span>
-              </div>
+              {exploreLinks.map((item) => (
+                <motion.button
+                  key={item}
+                  whileHover={{
+                    x: 6,
+                  }}
+                  className="group flex items-center gap-3 text-left text-lg text-white/70 transition-colors hover:text-white"
+                >
+                  <ArrowUpRight
+                    size={18}
+                    className="transition-transform duration-300 group-hover:rotate-45"
+                  />
 
-              <div className="flex items-center gap-3 text-white/75">
-                <Globe size={18} />
-                <span className="text-base md:text-lg">
-                  www.zensory.co.in
-                </span>
-              </div>
+                  {item}
 
-              <div className="flex items-center gap-3 text-white/75">
-                <AtSign size={18} />
-                <span className="text-base md:text-lg">
-                  @zensoryecosystem
-                </span>
-              </div>
+                </motion.button>
+              ))}
 
-              <div className="flex items-center gap-3 text-white/75">
-                <MapPin size={18} />
-                <span className="text-base md:text-lg">
-                  NIBM Road, Pune
-                </span>
-              </div>
+            </div>
+
+          </motion.div>
+
+          {/* Contact */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.25 }}
+          >
+            <h3 className="mb-8 text-sm font-bold uppercase tracking-[4px] text-cyan-300">
+              Connect
+            </h3>
+
+            <div className="space-y-4">
+
+              {contactInfo.map((item) => (
+                <motion.div
+                  key={item.text}
+                  whileHover={{
+                    x: 4,
+                  }}
+                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all hover:bg-white/10"
+                >
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl ${item.bg}`}
+                  >
+                    <item.icon
+                      size={20}
+                      className="text-[#0EA5B7]"
+                    />
+                  </div>
+
+                  <span className="text-base text-white/80">
+                    {item.text}
+                  </span>
+
+                </motion.div>
+              ))}
 
             </div>
 
@@ -124,23 +188,32 @@ export default function Footer() {
 
         {/* Divider */}
 
-        <div className="my-10 h-px bg-white/10" />
+        <div className="my-12 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
         {/* Bottom */}
 
-        <div className="flex flex-col items-center justify-between gap-4 text-center lg:flex-row lg:text-left">
+        <div className="flex flex-col gap-4 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
 
           <p className="text-sm text-white/50 md:text-base">
             © 2026 Zensory. All Rights Reserved.
           </p>
 
-          <p className="text-sm text-white/50 md:text-base">
-            Designed with ❤️ for every child's journey.
+          <p className="flex items-center justify-center gap-2 text-sm text-white/50 md:text-base lg:justify-end">
+            Designed with
+
+            <Heart
+              size={16}
+              className="text-[#F7C63D]"
+              fill="#F7C63D"
+            />
+
+            for every child's journey.
           </p>
 
         </div>
 
       </div>
+
     </footer>
   );
 }

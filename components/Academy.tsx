@@ -20,48 +20,63 @@ const cards = [
     title: "Autism",
     icon: Circle,
     color: "text-cyan-600",
+    bg: "bg-[#ECFBFD]",
   },
   {
     title: "ADHD",
     icon: Crosshair,
     color: "text-violet-600",
+    bg: "bg-[#F5F0FF]",
   },
   {
     title: "Sensory Play",
     icon: BookOpen,
-    color: "text-yellow-500",
+    color: "text-amber-500",
+    bg: "bg-[#FFF8EA]",
   },
   {
     title: "Physical Therapy",
     icon: Heart,
     color: "text-green-600",
+    bg: "bg-[#EFFAF2]",
   },
   {
     title: "Assistive Tech",
     icon: Monitor,
     color: "text-cyan-600",
+    bg: "bg-[#EDF9FF]",
   },
   {
     title: "Parent Courses",
     icon: Brain,
-    color: "text-cyan-600",
+    color: "text-pink-500",
+    bg: "bg-[#FFF1F6]",
   },
   {
     title: "Videos",
     icon: Play,
-    color: "text-yellow-500",
+    color: "text-orange-500",
+    bg: "bg-[#FFF6EB]",
   },
   {
     title: "Downloads",
     icon: Download,
     color: "text-green-600",
+    bg: "bg-[#EEFDF3]",
   },
 ];
 
 export default function Academy() {
   return (
-    <section className="bg-[#F5FBFA] py-16 md:py-24 lg:py-32">
-      <div className="container">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FFFD] via-[#FDFEFF] to-[#F7FBFF] py-20 md:py-28 lg:py-36">
+
+      {/* Decorative Blobs */}
+
+      <div className="absolute -left-24 top-20 h-64 w-64 rounded-full bg-cyan-100 blur-3xl opacity-40" />
+      <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-yellow-100 blur-3xl opacity-40" />
+      <div className="absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-green-100 blur-3xl opacity-40" />
+
+      <div className="container relative z-10">
 
         {/* Heading */}
 
@@ -69,25 +84,27 @@ export default function Academy() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center md:text-left"
+          className="text-center"
         >
-          <p className="text-sm md:text-base lg:text-lg font-bold tracking-[3px] md:tracking-[4px] uppercase text-[#0A6077]">
+          <p className="font-bold uppercase tracking-[4px] text-[#0A7E93]">
             ZENSORY ACADEMY
           </p>
 
-          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#071B35]">
-            Learning that travels home with you
+          <h2 className="mt-5 text-4xl font-bold text-[#061B35] sm:text-5xl lg:text-6xl">
+            Learning that travels
+            <br />
+            home with you
           </h2>
 
-          <p className="mt-5 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-[#2C5A70]">
-            Short courses, articles, and downloads for every stage of the
-            journey — written for parents, not textbooks.
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-[#446778] md:text-xl">
+            Short courses, articles and downloads for every stage of the
+            journey — thoughtfully created for parents, not textbooks.
           </p>
         </motion.div>
 
         {/* Cards */}
 
-        <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
 
           {cards.map((card) => (
             <AcademyCard
@@ -95,6 +112,7 @@ export default function Academy() {
               title={card.title}
               Icon={card.icon}
               iconColor={card.color}
+              bgColor={card.bg}
             />
           ))}
 
@@ -102,22 +120,23 @@ export default function Academy() {
 
         {/* Button */}
 
-        <div className="mt-10 md:mt-16 flex justify-center">
+        <div className="mt-16 flex justify-center">
 
           <motion.button
             whileHover={{
-              scale: 1.04,
+              scale: 1.05,
+              y: -4,
             }}
             whileTap={{
               scale: 0.97,
             }}
-            className="flex items-center gap-3 rounded-full border-2 border-gray-300 bg-white px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 text-base md:text-lg lg:text-xl font-semibold text-[#061B35] shadow-sm hover:shadow-lg transition-all"
+            className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-[#F7B733] to-[#F6A51B] px-10 py-5 text-lg font-bold text-[#061B35] shadow-xl transition-all"
           >
             Explore Articles
 
             <ArrowRight
               size={20}
-              className="md:w-6 md:h-6"
+              className="transition-transform group-hover:translate-x-1"
             />
 
           </motion.button>

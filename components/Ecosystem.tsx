@@ -15,7 +15,7 @@ const pillars = [
       "Progress benchmarking",
     ],
     badgeColor: "bg-cyan-600",
-    bgColor: "bg-[#EAF7FB]",
+    bgColor: "bg-[#ECFBFD]",
     textColor: "text-cyan-900",
   },
   {
@@ -27,8 +27,8 @@ const pillars = [
       "Speech therapy",
       "Sensory integration",
     ],
-    badgeColor: "bg-amber-500",
-    bgColor: "bg-[#FDF3E8]",
+    badgeColor: "bg-[#F7B733]",
+    bgColor: "bg-[#FFF8EB]",
     textColor: "text-[#8A4A00]",
   },
   {
@@ -41,7 +41,7 @@ const pillars = [
       "Tele-therapy sessions",
     ],
     badgeColor: "bg-violet-600",
-    bgColor: "bg-[#F3F0FF]",
+    bgColor: "bg-[#F6F1FF]",
     textColor: "text-violet-900",
   },
   {
@@ -54,15 +54,22 @@ const pillars = [
       "Inclusive play & workshops",
     ],
     badgeColor: "bg-green-600",
-    bgColor: "bg-[#EEF8F1]",
+    bgColor: "bg-[#EEF9F1]",
     textColor: "text-green-900",
   },
 ];
 
 export default function Ecosystem() {
   return (
-    <section className="bg-white py-16 md:py-24 lg:py-32">
-      <div className="container">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FFFCF7] via-white to-[#F8FFFD] py-20 md:py-28 lg:py-36">
+
+      {/* Background */}
+
+      <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-100 blur-3xl opacity-40" />
+      <div className="absolute right-0 top-48 h-72 w-72 rounded-full bg-yellow-100 blur-3xl opacity-40" />
+      <div className="absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-green-100 blur-3xl opacity-30" />
+
+      <div className="container relative z-10">
 
         {/* Heading */}
 
@@ -70,26 +77,28 @@ export default function Ecosystem() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16 text-center lg:text-left"
+          className="mb-16 text-center lg:text-left"
         >
-          <p className="text-sm md:text-base lg:text-lg font-bold uppercase tracking-[3px] md:tracking-[4px] text-[#0A6077]">
+          <p className="font-bold uppercase tracking-[4px] text-[#0A8FA3]">
             OUR ECOSYSTEM
           </p>
 
-          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#071B35]">
-            Four pillars, one child
+          <h2 className="mt-5 text-4xl font-bold leading-tight text-[#061B35] sm:text-5xl lg:text-6xl">
+            Four pillars,
+            <br />
+            one child.
           </h2>
 
-          <p className="mt-5 max-w-4xl text-base sm:text-lg md:text-xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-[#2C5A70] mx-auto lg:mx-0">
-            Every service sits inside one of four pillars—so therapy,
-            technology, and family stay working toward the same plan,
-            not scattered across separate providers.
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-9 text-[#4A6A79] lg:mx-0 lg:text-xl">
+            Every service sits inside one of four pillars so therapy,
+            technology and family continue working together toward one
+            meaningful plan—not as separate providers.
           </p>
         </motion.div>
 
         {/* Cards */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+        <div className="grid gap-7 md:grid-cols-2">
           {pillars.map((pillar) => (
             <PillarCard key={pillar.title} {...pillar} />
           ))}
@@ -98,59 +107,73 @@ export default function Ecosystem() {
         {/* Bottom Card */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.01 }}
-          className="mt-8 md:mt-10 rounded-3xl border border-[#F2D5B2] bg-[#FFF3E8] p-6 md:p-8"
+          whileHover={{
+            y: -4,
+          }}
+          className="group mt-12 rounded-[34px] border border-[#FFE4BF] bg-gradient-to-r from-[#FFF9F1] to-[#FFF5E7] p-8 shadow-lg transition-all duration-500 hover:shadow-2xl"
         >
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
 
             {/* Left */}
 
-            <div className="flex flex-col sm:flex-row gap-5 md:gap-6">
+            <div className="flex flex-col gap-6 sm:flex-row">
 
-              <div className="flex h-14 w-14 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-full bg-white shadow">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md">
                 <Heart
-                  className="text-amber-500"
-                  fill="#F5A623"
-                  size={28}
+                  fill="#F7B733"
+                  className="text-[#F7B733]"
+                  size={30}
                 />
               </div>
 
               <div>
 
-                <span className="inline-block rounded-full bg-amber-300 px-3 py-1 text-xs md:text-sm font-semibold">
+                <span className="rounded-full bg-[#FFE8B5] px-4 py-2 text-xs font-semibold uppercase tracking-[2px] text-[#8A4A00]">
                   Also from Zensory
                 </span>
 
-                <h3 className="mt-3 text-2xl md:text-3xl lg:text-4xl font-bold text-[#071B35] leading-tight">
-                  Zensory Nest — a space for mothers
+                <h3 className="mt-5 text-3xl font-bold text-[#061B35]">
+                  Zensory Nest — A space for mothers
                 </h3>
 
-                <p className="mt-4 text-base md:text-lg lg:text-xl leading-7 md:leading-9 text-[#2C5A70]">
-                  Sound healing, breathwork, and a small circle of antenatal &
-                  postnatal mothers. Separate from our core therapy programs,
-                  held most weekends.
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-[#506D79]">
+                  Sound healing, breathwork, and supportive antenatal &
+                  postnatal circles. A peaceful space created especially for
+                  mothers, separate from our therapy programs and held on most
+                  weekends.
                 </p>
 
               </div>
 
             </div>
 
-            {/* Arrow */}
+            {/* Button */}
 
-            <button className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-white shadow-md transition hover:scale-110 self-start lg:self-center">
+            <motion.button
+              whileHover={{
+                scale: 1.08,
+                rotate: -8,
+              }}
+              whileTap={{
+                scale: 0.96,
+              }}
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg transition-all group-hover:bg-[#F7B733]"
+            >
               <ArrowRight
                 size={28}
-                className="text-amber-500"
+                className="text-[#F7B733] transition-colors group-hover:text-white"
               />
-            </button>
+            </motion.button>
 
           </div>
+
         </motion.div>
 
       </div>
+
     </section>
   );
 }

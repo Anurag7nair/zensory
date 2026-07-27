@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import JourneyCard from "./JourneyCard";
 
 import {
@@ -8,7 +10,6 @@ import {
   Monitor,
   Heart,
   Smile,
-  Sparkles,
 } from "lucide-react";
 
 const stages = [
@@ -18,7 +19,7 @@ const stages = [
     description:
       "A play-based sensory and developmental assessment that charts your child's own constellation — how they sense, move, and connect.",
     icon: ScanSearch,
-    color: "#00A6C7",
+    color: "#0EA5B7",
   },
   {
     stage: "STAGE 2",
@@ -26,7 +27,7 @@ const stages = [
     description:
       "Hands-on occupational, physical, speech and sensory integration therapy — the core of every child's plan.",
     icon: Activity,
-    color: "#F4A621",
+    color: "#F7B733",
   },
   {
     stage: "STAGE 3",
@@ -34,7 +35,7 @@ const stages = [
     description:
       "Purposeful tech — interactive tools, progress tracking apps, and assistive communication aids — layered onto hands-on therapy.",
     icon: Monitor,
-    color: "#7C4DFF",
+    color: "#8B5CF6",
   },
   {
     stage: "STAGE 4",
@@ -42,7 +43,7 @@ const stages = [
     description:
       "Parents sit inside the session, not outside it — coached in real time so progress carries home.",
     icon: Heart,
-    color: "#2C9A38",
+    color: "#57C45A",
   },
   {
     stage: "STAGE 5",
@@ -50,7 +51,7 @@ const stages = [
     description:
       "Weekend play sessions and parent circles where every child belongs, exactly as they are.",
     icon: Smile,
-    color: "#00A6C7",
+    color: "#0EA5B7",
   },
   {
     stage: "STAGE 6",
@@ -58,39 +59,112 @@ const stages = [
     description:
       "Not a finish line — a child who keeps growing, with progress reviewed and the plan reshaped every step of the way.",
     icon: Sparkles,
-    color: "#F4A621",
+    color: "#F7B733",
   },
 ];
 
 export default function Journey() {
   return (
-    <section className="bg-white py-28">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-white to-[#F8FFFD] py-20 md:py-28 lg:py-36">
 
-      <div className="mx-auto max-w-7xl px-8">
+      {/* Background Decorations */}
 
-        <div className="mb-24 text-center">
+      <motion.div
+        animate={{
+          y: [0, -25, 0],
+          x: [0, 15, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-cyan-100 blur-3xl opacity-40"
+      />
 
-          <p className="mb-4 text-lg font-bold tracking-[5px] text-[#0A6077] uppercase">
+      <motion.div
+        animate={{
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-0 top-52 h-80 w-80 rounded-full bg-yellow-100 blur-3xl opacity-40"
+      />
+
+      <motion.div
+        animate={{
+          scale: [1, 1.08, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-green-100 blur-3xl opacity-30"
+      />
+
+      {/* Decorative Sparkles */}
+
+      <Sparkles
+        size={28}
+        className="absolute left-20 top-32 hidden text-[#F7C63D]/60 lg:block"
+      />
+
+      <Sparkles
+        size={22}
+        className="absolute right-24 top-60 hidden text-[#0EA5B7]/60 lg:block"
+      />
+
+      <div className="container relative z-10">
+
+        {/* Heading */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mb-16 text-center lg:mb-20"
+        >
+
+          <p className="mb-5 text-sm font-bold uppercase tracking-[4px] text-[#0EA5B7] md:text-base lg:text-lg">
             THE ZENSORY JOURNEY
           </p>
 
-          <h2 className="mb-6 text-6xl font-bold text-[#061B35]">
-            Six stages, one continuous path
+          <h2 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-[#061B35] sm:text-5xl lg:text-6xl">
+            Six stages,
+            <br className="hidden sm:block" />
+            one continuous path.
           </h2>
 
-          <p className="mx-auto max-w-4xl text-2xl leading-10 text-[#2B5B71]">
-            Growth doesn't happen in a straight line of appointments — it
-            unfolds in stages. Zensory walks beside your child and your family
-            through each one.
+          <p className="mx-auto mt-8 max-w-4xl text-lg leading-9 text-[#506D79] md:text-xl lg:text-2xl lg:leading-[44px]">
+            Growth doesn't happen through isolated appointments.
+            It unfolds through meaningful stages, where therapists,
+            technology and families move forward together—one step at a time.
           </p>
 
-        </div>
+        </motion.div>
 
-        <div className="space-y-2">
+        {/* Journey Cards */}
+
+        <div className="space-y-5">
 
           {stages.map((stage, index) => (
             <JourneyCard
-              key={index}
+              key={stage.title}
               stage={stage.stage}
               title={stage.title}
               description={stage.description}

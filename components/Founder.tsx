@@ -1,176 +1,188 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heart, Sparkles, Quote } from "lucide-react";
 
 export default function Founder() {
   return (
-    <section className="bg-[#F5FCFB] py-16 md:py-24 lg:py-28">
-      <div className="container">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FFFD] via-white to-[#FFFDF8] py-20 md:py-28 lg:py-36">
 
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      {/* Background Decoration */}
 
-          {/* Left Content */}
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-20 top-24 h-72 w-72 rounded-full bg-cyan-100 blur-3xl opacity-40"
+      />
+
+      <motion.div
+        animate={{
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-0 top-32 h-72 w-72 rounded-full bg-yellow-100 blur-3xl opacity-40"
+      />
+
+      <motion.div
+        animate={{
+          scale: [1, 1.08, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+        }}
+        className="absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-green-100 blur-3xl opacity-30"
+      />
+
+      <div className="container relative z-10">
+
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
+
+          {/* Left */}
 
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="order-2 lg:order-1"
+            transition={{ duration: .7 }}
           >
-            <p className="mb-3 text-sm md:text-base lg:text-lg font-bold uppercase tracking-[4px] text-[#0A6077]">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[4px] text-[#0EA5B7]">
               MEET OUR FOUNDER
             </p>
 
-            <p className="mb-3 text-base md:text-lg font-semibold text-[#F6AB1A]">
+            <p className="mb-3 text-lg font-semibold text-[#F7B733]">
               Lt Col (Retd)
             </p>
 
-            <h2 className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#061B35]">
+            <h2 className="text-4xl font-bold leading-tight text-[#061B35] sm:text-5xl lg:text-6xl">
               Rejitha Pillai
             </h2>
 
-            <p className="text-base md:text-lg lg:text-xl leading-8 md:leading-9 lg:leading-10 text-[#315B6F]">
+            <p className="mt-8 text-lg leading-9 text-[#4B6A79] lg:text-xl">
               Two decades of military discipline meet a deeply personal
-              commitment to neurodiverse children. Rejitha founded
-              Zensory in NIBM, Pune to bring that same rigor to
-              physical and sensory therapy paired with thoughtful
-              technology and parents treated as partners, not
-              bystanders, in every session.
+              commitment to neurodiverse children. Rejitha founded Zensory in
+              Pune to bring together physical therapy, sensory integration,
+              thoughtful technology and one simple belief —
+              <strong className="text-[#061B35]">
+                {" "}parents should always be partners.
+              </strong>
             </p>
 
             {/* Quote */}
 
             <motion.div
-              whileHover={{ x: 5 }}
-              className="mt-8 md:mt-10 rounded-2xl border-l-4 border-[#39A94A] bg-white p-5 md:p-6 lg:p-8 shadow-sm"
+              whileHover={{
+                y: -4,
+              }}
+              className="relative mt-10 overflow-hidden rounded-[30px] border border-white bg-white/90 p-8 shadow-xl backdrop-blur"
             >
-              <p className="text-lg md:text-xl lg:text-2xl italic leading-8 md:leading-9 lg:leading-10 text-[#061B35]">
-                “Discipline gave me structure. Motherhood gave me
-                purpose. Zensory is where both come together.”
+
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-yellow-100 blur-3xl opacity-40" />
+
+              <Quote
+                size={40}
+                className="mb-5 text-[#F7B733]"
+              />
+
+              <p className="relative text-xl italic leading-9 text-[#061B35]">
+                “Discipline gave me structure.
+                <br />
+                Motherhood gave me purpose.
+                <br />
+                Zensory is where both come together.”
               </p>
+
             </motion.div>
 
           </motion.div>
 
-          {/* Right Card */}
+          {/* Right */}
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-1 flex justify-center lg:order-2"
+            transition={{ duration: .8 }}
+            className="flex justify-center"
           >
+
             <motion.div
               animate={{
                 y: [0, -10, 0],
               }}
               transition={{
-                duration: 5,
+                duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="
-                relative
-                flex
-                items-center
-                justify-center
-                overflow-hidden
-                rounded-[32px]
-                md:rounded-[40px]
-                bg-gradient-to-br
-                from-[#063746]
-                via-[#0A5A6C]
-                to-[#084D5D]
-                shadow-2xl
-
-                w-[280px]
-                h-[280px]
-
-                sm:w-[340px]
-                sm:h-[340px]
-
-                md:w-[400px]
-                md:h-[400px]
-
-                lg:w-[430px]
-                lg:h-[430px]
-              "
+              className="relative flex h-[430px] w-[430px] items-center justify-center overflow-hidden rounded-[42px] bg-gradient-to-br from-[#0EA5B7] via-[#13879A] to-[#0A6175] shadow-[0_30px_80px_rgba(14,165,183,0.25)]"
             >
+
               {/* Decorative Circles */}
 
-              <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-white/10" />
-              <div className="absolute right-8 top-10 h-28 w-28 rounded-full border border-white/10" />
-              <div className="absolute bottom-10 left-8 h-36 w-36 rounded-full border border-white/10" />
-              <div className="absolute -right-12 bottom-0 h-56 w-56 rounded-full border border-white/10" />
-
-              {/* Decorative Lines */}
-
-              <svg
-                className="absolute inset-0 h-full w-full opacity-15"
-                viewBox="0 0 500 500"
-              >
-                <path
-                  d="M0 100 Q250 0 500 100"
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-
-                <path
-                  d="M0 220 Q250 130 500 220"
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-
-                <path
-                  d="M0 340 Q250 250 500 340"
-                  stroke="white"
-                  strokeWidth="1"
-                  fill="none"
-                />
-              </svg>
+              <div className="absolute -left-16 -top-16 h-60 w-60 rounded-full border border-white/10" />
+              <div className="absolute right-6 top-10 h-36 w-36 rounded-full border border-white/10" />
+              <div className="absolute bottom-8 left-10 h-44 w-44 rounded-full border border-white/10" />
+              <div className="absolute -right-12 bottom-0 h-60 w-60 rounded-full border border-white/10" />
 
               {/* Glow */}
 
               <motion.div
                 animate={{
                   scale: [1, 1.15, 1],
-                  opacity: [0.25, 0.45, 0.25],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                }}
-                className="absolute h-44 w-44 md:h-60 md:w-60 rounded-full bg-cyan-300 blur-[90px]"
-              />
-
-              {/* Initials */}
-
-              <motion.h1
-                animate={{
-                  scale: [1, 1.04, 1],
+                  opacity: [.25, .45, .25],
                 }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
                 }}
-                className="
-                  relative
-                  z-10
-                  text-[80px]
-                  sm:text-[100px]
-                  md:text-[120px]
-                  lg:text-[140px]
-                  font-black
-                  tracking-tight
-                  text-white
-                "
-              >
-                RP
-              </motion.h1>
+                className="absolute h-72 w-72 rounded-full bg-cyan-300 blur-[110px]"
+              />
+
+              {/* Decorative Icons */}
+
+              <Sparkles
+                className="absolute left-10 top-12 text-white/30"
+                size={28}
+              />
+
+              <Heart
+                className="absolute bottom-12 right-12 text-white/20"
+                size={26}
+                fill="currentColor"
+              />
+
+              {/* Placeholder */}
+
+              <div className="relative z-10 flex h-64 w-64 items-center justify-center rounded-full border-4 border-white/20 bg-white/10 backdrop-blur">
+
+                <div className="text-center">
+
+                  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white/20 text-5xl font-black text-white">
+                    RP
+                  </div>
+
+                  <p className="mt-6 text-xl font-semibold text-white">
+                    Founder
+                  </p>
+
+                  <p className="mt-2 text-white/70">
+                    Replace with portrait
+                  </p>
+
+                </div>
+
+              </div>
 
             </motion.div>
 
@@ -179,6 +191,7 @@ export default function Founder() {
         </div>
 
       </div>
+
     </section>
   );
 }

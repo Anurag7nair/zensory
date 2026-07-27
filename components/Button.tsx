@@ -18,34 +18,54 @@ export default function Button({
     <motion.button
       whileHover={{
         scale: 1.04,
-        y: -2,
+        y: -3,
       }}
       whileTap={{
         scale: 0.97,
       }}
       transition={{
         type: "spring",
-        stiffness: 300,
+        stiffness: 260,
         damping: 18,
       }}
       className={`
-        inline-flex items-center justify-center
+        inline-flex
+        items-center
+        justify-center
         rounded-full
         font-semibold
         transition-all
         duration-300
 
-        px-5 py-3
+        px-6 py-3
         text-sm
 
-        sm:px-6 sm:py-3 sm:text-base
-        md:px-8 md:py-4 md:text-lg
-        lg:px-10 lg:py-5 lg:text-xl
+        sm:px-7 sm:py-3.5 sm:text-base
+        md:px-9 md:py-4 md:text-lg
+        lg:px-11 lg:py-5 lg:text-xl
 
         ${
           variant === "primary"
-            ? "bg-[#F6AB1A] text-[#051B35] shadow-lg hover:shadow-xl"
-            : "border-2 border-gray-300 bg-white text-[#051B35] hover:bg-gray-50 hover:border-[#F6AB1A]"
+            ? `
+              bg-gradient-to-r
+              from-[#F7C63D]
+              via-[#F6B73C]
+              to-[#F39C12]
+              text-[#071B35]
+              shadow-[0_12px_30px_rgba(246,171,26,0.28)]
+              hover:shadow-[0_18px_40px_rgba(246,171,26,0.38)]
+            `
+            : `
+              border-2
+              border-[#DCEAE8]
+              bg-white/90
+              backdrop-blur
+              text-[#083A52]
+              shadow-sm
+              hover:bg-[#F9FFFF]
+              hover:border-[#0EA5B7]
+              hover:text-[#0A7E93]
+            `
         }
 
         ${className}

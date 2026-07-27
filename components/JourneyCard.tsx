@@ -22,75 +22,126 @@ export default function JourneyCard({
 }: JourneyCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
-      className="relative flex gap-4 md:gap-6 lg:gap-10"
+      initial={{
+        opacity: 0,
+        y: 40,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.3,
+      }}
+      transition={{
+        duration: 0.6,
+      }}
+      className="relative flex gap-5 md:gap-8 lg:gap-10"
     >
       {/* Timeline */}
 
-      <div className="flex flex-col items-center">
+      <div className="relative flex flex-col items-center">
+
+        {/* Icon */}
 
         <motion.div
           whileHover={{
-            scale: 1.08,
-            rotate: 5,
+            scale: 1.1,
+            rotate: 8,
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
+            stiffness: 320,
           }}
-          className="
-            z-10
-            flex
-            items-center
-            justify-center
-            rounded-full
-            border-[3px]
-            border-[#2C9A38]
-            bg-white
-            shadow-lg
-
-            h-12
-            w-12
-
-            md:h-14
-            md:w-14
-
-            lg:h-16
-            lg:w-16
-          "
+          className="relative z-10"
         >
-          <Icon
-            size={22}
-            color={color}
+
+          {/* Glow */}
+
+          <div
+            className="absolute inset-0 rounded-full blur-xl opacity-30"
+            style={{
+              backgroundColor: color,
+            }}
           />
+
+          <div
+            className="relative flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-white shadow-xl md:h-16 md:w-16 lg:h-[74px] lg:w-[74px]"
+          >
+            <Icon
+              size={30}
+              style={{
+                color,
+              }}
+            />
+          </div>
+
         </motion.div>
 
+        {/* Timeline */}
+
         {!isLast && (
-          <div className="mt-2 w-[3px] flex-1 bg-[#2C9A38]" />
+          <div className="mt-3 flex flex-1 justify-center">
+
+            <div
+              className="w-[4px] rounded-full"
+              style={{
+                background: `linear-gradient(to bottom, ${color}, #D7EDEB)`,
+              }}
+            />
+
+          </div>
         )}
+
       </div>
 
-      {/* Content */}
+      {/* Card */}
 
-      <div className="pb-10 md:pb-14 lg:pb-20">
+      <motion.div
+        whileHover={{
+          y: -6,
+        }}
+        transition={{
+          duration: 0.3,
+        }}
+        className="group relative flex-1 overflow-hidden rounded-[30px] border border-white/70 bg-white/80 p-6 shadow-[0_18px_45px_rgba(6,27,53,0.08)] backdrop-blur-lg transition-all duration-300 hover:shadow-[0_24px_60px_rgba(6,27,53,0.12)] md:p-8 lg:p-10"
+      >
 
-        <p className="mb-2 text-xs md:text-sm font-bold uppercase tracking-[3px] text-[#2C9A38]">
+        {/* Decorative Blob */}
+
+        <div
+          className="absolute -right-16 -top-16 h-40 w-40 rounded-full blur-3xl opacity-10 transition-opacity duration-300 group-hover:opacity-20"
+          style={{
+            backgroundColor: color,
+          }}
+        />
+
+        {/* Stage */}
+
+        <span
+          className="inline-flex rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[3px] md:text-sm"
+          style={{
+            backgroundColor: `${color}15`,
+            color,
+          }}
+        >
           {stage}
-        </p>
+        </span>
 
-        <h3 className="mb-3 text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#061B35]">
+        {/* Title */}
+
+        <h3 className="mt-5 text-2xl font-bold leading-tight text-[#061B35] md:text-3xl lg:text-4xl">
           {title}
         </h3>
 
-        <p className="max-w-2xl text-base md:text-lg lg:text-[22px] leading-7 md:leading-8 lg:leading-10 text-[#2B5B71]">
+        {/* Description */}
+
+        <p className="mt-5 max-w-3xl text-base leading-8 text-[#506D79] md:text-lg lg:text-[21px] lg:leading-10">
           {description}
         </p>
 
-      </div>
-
+      </motion.div>
     </motion.div>
   );
-}   
+}

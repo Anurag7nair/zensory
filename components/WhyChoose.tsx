@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 
 const reasons = [
   "Evidence-based, individualized care",
@@ -16,87 +16,155 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="bg-[#071C2A] py-16 md:py-24 lg:py-32">
-      <div className="container">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#061B35] via-[#0A2847] to-[#0C3956] py-20 md:py-28 lg:py-36">
+
+      {/* Background Glow */}
+
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute -left-28 top-16 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl"
+      />
+
+      <motion.div
+        animate={{
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-0 top-24 h-80 w-80 rounded-full bg-yellow-300/10 blur-3xl"
+      />
+
+      <motion.div
+        animate={{
+          scale: [1, 1.08, 1],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+        }}
+        className="absolute bottom-0 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-green-400/10 blur-3xl"
+      />
+
+      {/* Decorative Sparkles */}
+
+      <Sparkles
+        className="absolute left-16 top-20 hidden text-[#F7B733]/40 lg:block"
+        size={32}
+      />
+
+      <Sparkles
+        className="absolute right-20 top-40 hidden text-cyan-300/40 lg:block"
+        size={26}
+      />
+
+      <div className="container relative z-10">
 
         {/* Heading */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center lg:text-left"
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="text-center"
         >
-          <p className="mb-4 md:mb-6 text-sm md:text-base lg:text-lg font-bold uppercase tracking-[3px] md:tracking-[5px] text-[#F7B32B]">
+          <p className="mb-5 text-sm font-bold uppercase tracking-[4px] text-[#F7B733] md:text-base lg:text-lg">
             WHY FAMILIES CHOOSE ZENSORY
           </p>
 
-          <h2 className="max-w-5xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-            Therapy, technology,
+          <h2 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Therapy, technology
             <br className="hidden sm:block" />
-            <span className="block sm:inline">
-              {" "}and family working as one plan
+
+            <span className="bg-gradient-to-r from-[#57C45A] via-[#7DD3FC] to-[#F7B733] bg-clip-text text-transparent">
+              & family working together
             </span>
           </h2>
+
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-white/70 md:text-xl">
+            Every child receives a personalized journey supported by
+            experienced therapists, innovative technology and families who are
+            empowered every step of the way.
+          </p>
         </motion.div>
 
-        {/* Grid */}
+        {/* Cards */}
 
-        <div className="mt-10 md:mt-14 lg:mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-24 gap-y-6 md:gap-y-8 lg:gap-y-10">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
 
           {reasons.map((reason, index) => (
             <motion.div
               key={reason}
               initial={{
                 opacity: 0,
-                x: index % 2 === 0 ? -30 : 30,
+                y: 30,
               }}
               whileInView={{
                 opacity: 1,
-                x: 0,
+                y: 0,
               }}
-              viewport={{ once: true }}
+              viewport={{
+                once: true,
+              }}
               transition={{
                 delay: index * 0.08,
                 duration: 0.5,
               }}
               whileHover={{
-                x: 8,
+                y: -6,
               }}
-              className="group flex items-center gap-4 md:gap-5"
+              className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-lg transition-all duration-300 hover:bg-white/10 hover:shadow-[0_20px_50px_rgba(0,0,0,0.18)] md:p-7 lg:p-8"
             >
-              {/* Icon */}
 
-              <div
-                className="
-                  flex
-                  h-10
-                  w-10
-                  md:h-11
-                  md:w-11
-                  lg:h-12
-                  lg:w-12
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-[#0D3444]
-                  transition-all
-                  duration-300
-                  group-hover:bg-[#124B60]
-                "
-              >
-                <CheckCircle2
-                  className="text-[#30D5C8]"
-                  size={20}
-                />
+              {/* Decorative Glow */}
+
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-400/10 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+
+              <div className="flex items-start gap-5">
+
+                {/* Icon */}
+
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0EA5B7] to-[#57C45A] shadow-lg">
+
+                  <CheckCircle2
+                    size={26}
+                    className="text-white"
+                    strokeWidth={2.5}
+                  />
+
+                </div>
+
+                {/* Text */}
+
+                <div>
+
+                  <p className="text-xl font-semibold leading-8 text-white md:text-2xl">
+                    {reason}
+                  </p>
+
+                </div>
+
               </div>
-
-              {/* Text */}
-
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold leading-relaxed text-white">
-                {reason}
-              </p>
 
             </motion.div>
           ))}
@@ -104,6 +172,7 @@ export default function WhyChoose() {
         </div>
 
       </div>
+
     </section>
   );
 }

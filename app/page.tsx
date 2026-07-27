@@ -9,6 +9,7 @@ import WeekendPlay from "@/components/WeekendPlay";
 import Founder from "@/components/Founder";
 import CTAFooter from "@/components/CTAFooter";
 import Footer from "@/components/Footer";
+import BrandStory from "@/components/Brandstory";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Intro />
+      <BrandStory/>
       <Journey />
       <Ecosystem />
       <WhyChoose />
